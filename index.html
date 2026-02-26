@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Prendario | Luciano Lopresti</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-card">
+        <header>
+            <div class="logo-wrapper">
+                <div class="logo-main"><div class="logo-inner"><div class="logo-core"></div></div></div>
+            </div>
+            <h1>Créditos<span>Prendarios</span></h1>
+        </header>
+
+        <form id="loan-form">
+            <div class="input-box">
+                <label>Monto del Crédito</label>
+                <input type="text" id="monto" placeholder="$ 0,00" required>
+            </div>
+            <div class="input-box">
+                <label>Cantidad de Cuotas</label>
+                <select id="cuotas" required>
+                    <option value="" disabled selected>Selecciona plazo</option>
+                        <option value="1">1 cuota</option>
+                        <option value="2">2 cuotas</option>
+                        <option value="3">3 cuotas</option>
+                        <option value="4">4 cuotas</option>
+                        <option value="5">5 cuotas</option>
+                        <option value="6">6 cuotas</option>
+                        <option value="7">7 cuotas</option>
+                        <option value="8">8 cuotas</option>
+                        <option value="9">9 cuotas</option>
+                        <option value="10">10 cuotas</option>
+                        <option value="11">11 cuotas</option>
+                        <option value="12">12 cuotas</option>
+                        <option value="13">13 cuotas</option>
+                        <option value="14">14 cuotas</option>
+                        <option value="15">15 cuotas</option>
+                        <option value="16">16 cuotas</option>
+                        <option value="17">17 cuotas</option>
+                        <option value="18">18 cuotas</option>
+                        <option value="19">19 cuotas</option>
+                        <option value="20">20 cuotas</option>
+                        <option value="21">21 cuotas</option>
+                        <option value="22">22 cuotas</option>
+                        <option value="23">23 cuotas</option>
+                        <option value="24">24 cuotas</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label>Año del Vehículo</label>
+                <select id="anio-vehiculo" required>
+                    <option value="" disabled selected>Selecciona el año</option>
+                </select>
+            </div>
+            <button type="button" id="calc-btn" class="shiny-btn">Calcular Cuota</button>
+        </form>
+
+        <div id="result-container" class="hidden">
+            <p>Cuota mensual estimada:</p>
+            <h2 id="final-price">$ 0.00</h2>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
