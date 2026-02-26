@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultContainer = document.getElementById('result-container');
     const priceText = document.getElementById('final-price');
 
-    // 1. CARGAR AÑOS (2222 + Rango 2026-2005)
+    
     if (selectAnio) {
         let opcionEspecial = document.createElement('option');
         opcionEspecial.value = "2222";
@@ -20,20 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. FORMATEAR MONTO CON SEPARADOR DE MILES (Puntos)
+    
     inputMonto.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, ""); // Elimina todo lo que no sea número
+        let value = e.target.value.replace(/\D/g, ""); 
         if (value === "") {
             e.target.value = "";
             return;
         }
-        // Agrega los puntos de miles
+        
         e.target.value = new Intl.NumberFormat('es-AR').format(value);
     });
 
-    // 3. LÓGICA DEL CÁLCULO
+    
     btn.addEventListener('click', () => {
-        // Para calcular, debemos quitar los puntos del monto
+        
         const montoLimpio = parseFloat(inputMonto.value.replace(/\./g, ''));
         const cuotas = parseInt(document.getElementById('cuotas').value);
         const anio = document.getElementById('anio-vehiculo').value;
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.innerText = "Calcular Cuota";
             }, 500);
         } else {
-            alert("Por favor, completa todos los campos.");
+            alert("completa todos los campos.");
         }
     });
 });
