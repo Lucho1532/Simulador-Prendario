@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -138,7 +139,7 @@ select:focus {
     font-size: 11px;
     color: #777;
     display: block;
-    margin: 5px 0;
+    /* margin: 5px 0; */
 }
 
 h2 {
@@ -171,7 +172,7 @@ h3 {
 }
 
 .logo-img {
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
     object-fit: contain;
 }

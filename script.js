@@ -29,13 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    
+
     inputMonto.addEventListener('input', (e) => {
         let value = e.target.value.replace(/\D/g, "");
         if (value !== "") {
             e.target.value = new Intl.NumberFormat('es-AR').format(value);
         }
     });
+
+    const calculadoraTasas = (anio) => {
+        if (anio === "2222") {
+            return 0.12;
+        } else if (anio >= 2005 && anio <= 2011) {
+            return 0.067;
+        } else if (anio >= 2012 && anio <= 2025) {
+            return 0.053;
+        }
+        return 0; // Default case
+    }
 
     btn.addEventListener('click', () => {
         const montoLimpio = parseFloat(inputMonto.value.replace(/\./g, ''));
@@ -45,12 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (montoLimpio > 0 && cuotas > 0 && anio !== "") {
             btn.innerText = "Calculando...";
             setTimeout(() => {
-                const tasaAnual = 0.50;
+                // const tasaAnual = 0.50;
+                // Tasa anual segun año del vehiculo
+                const tasaAnual = calculadoraTasas(anio);
                 const cuota = (montoLimpio * (1 + tasaAnual)) / cuotas;
                 const gastosAdmin = montoLimpio * 0.08;
 
-                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', {minimumFractionDigits: 2})}`;
-                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', {minimumFractionDigits: 2})}`;
+                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
+                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
 
                 resultContainer.classList.remove('hidden');
                 btn.innerText = "Calcular Cuota";
@@ -60,3 +73,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
