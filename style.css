@@ -1,3 +1,9 @@
+:root {
+    --primary-color: #0b2364;
+    --secundary-color: #334880;
+    --tertiary-color: #44548c;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -61,14 +67,14 @@ body {
 
 h1 {
     font-size: 24px;
-    color: #1d3557;
+    color: var(--tertiary-color);
     margin-bottom: 35px;
     font-weight: 300;
 }
 
 h1 span {
     display: block;
-    color: #e63946;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -80,7 +86,7 @@ h1 span {
 label {
     display: block;
     font-size: 13px;
-    color: #457b9d;
+    color: var(--primary-color);
     margin-bottom: 8px;
     font-weight: 600;
     text-transform: uppercase;
@@ -100,14 +106,14 @@ select {
 
 input:focus,
 select:focus {
-    border-color: #e63946;
+    border-color: var(--primary-color);
     background: white;
 }
 
 .shiny-btn {
     width: 100%;
     padding: 18px;
-    background: #e63946;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 12px;
@@ -118,7 +124,7 @@ select:focus {
 }
 
 .shiny-btn:hover {
-    background: #b71c1c;
+    background: var(--secundary-color);
     transform: translateY(-2px);
 }
 

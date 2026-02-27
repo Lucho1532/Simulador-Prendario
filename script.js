@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cuotas
     if (selectCuotas) {
-        for (let i = 1; i <= 24; i++) {
+        for (let i = 4; i <= 24; i++) {
             let op = document.createElement('option');
             op.value = i;
             op.innerText = i + (i === 1 ? " Cuota" : " Cuotas");
@@ -48,6 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return 0; // Default case
     }
 
+    const calculadoraGastosAdmin = (monto) => {
+        let viaticos = 40000;
+        let escribano = 60000;
+        const gastosAdmin = monto * 0.02 + viaticos + escribano;
+        return gastosAdmin; 
+    }
+
     btn.addEventListener('click', () => {
         const montoLimpio = parseFloat(inputMonto.value.replace(/\./g, ''));
         const cuotas = parseInt(selectCuotas.value);
@@ -60,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Tasa anual segun año del vehiculo
                 const tasaAnual = calculadoraTasas(anio);
                 const cuota = (montoLimpio * (1 + tasaAnual)) / cuotas;
-                const gastosAdmin = montoLimpio * 0.08;
+                // const gastosAdmin = montoLimpio * 0.08;
+                const gastosAdmin = calculadoraGastosAdmin(cuota*cuotas);
 
                 priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
                 adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
