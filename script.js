@@ -38,21 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const calculadoraTasas = (anio) => {
-        if (anio === "2222") {
-            return 0.12;
-        } else if (anio >= 2005 && anio <= 2011) {
-            return 0.067;
-        } else if (anio >= 2012 && anio <= 2025) {
-            return 0.053;
-        }
-        return 0; // Default case
+        // Usamos los valores decimales directos (5.3% -> 0.053)
+        if (anio === "2222") return 0.12;
+        if (anio >= 2005 && anio <= 2011) return 0.067;
+        if (anio >= 2012 && anio <= 2026) return 0.053; // Incluímos 2026
+        return 0;
     }
 
     const calculadoraGastosAdmin = (monto) => {
         let viaticos = 40000;
         let escribano = 60000;
         const gastosAdmin = monto * 0.02 + viaticos + escribano;
-        return gastosAdmin; 
+        return gastosAdmin;
     }
 
     btn.addEventListener('click', () => {
@@ -63,15 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (montoLimpio > 0 && cuotas > 0 && anio !== "") {
             btn.innerText = "Calculando...";
             setTimeout(() => {
-                // const tasaAnual = 0.50;
-                // Tasa anual segun año del vehiculo
-                const tasaAnual = calculadoraTasas(anio);
-                const cuota = (montoLimpio * (1 + tasaAnual)) / cuotas;
-                // const gastosAdmin = montoLimpio * 0.08;
-                const gastosAdmin = calculadoraGastosAdmin(cuota*cuotas);
+                const tasaMensual = calculadoraTasas(anio);
+                const totalConInteres = montoLimpio + (montoLimpio * (cuotas * tasaMensual));
+                const cuota = Math.round(totalConInteres / cuotas);
 
-                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
-                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`;
+                const gastosAdmin = calculadoraGastosAdmin(totalConInteres);
+
+                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 0 })}`;
+                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 0 })}`;
 
                 resultContainer.classList.remove('hidden');
                 btn.innerText = "Calcular Cuota";
