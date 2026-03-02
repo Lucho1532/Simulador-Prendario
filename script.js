@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculadoraTasas = (anio) => {
         // Usamos los valores decimales directos (5.3% -> 0.053)
         if (anio === "2222") return 0.12;
-        if (anio >= 2005 && anio <= 2011) return 0.067;
-        if (anio >= 2012 && anio <= 2026) return 0.053; // Incluímos 2026
+        if (anio >= 2006 && anio <= 2012) return 0.067;
+        if (anio >= 2013 && anio <= 2026) return 0.052; // Incluímos 2026
         return 0;
     }
 
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
