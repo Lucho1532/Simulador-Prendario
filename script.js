@@ -62,12 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const tasaMensual = calculadoraTasas(anio);
                 const totalConInteres = montoLimpio + (montoLimpio * (cuotas * tasaMensual));
+                
+                // Redondeamos ambos valores a enteros
                 const cuota = Math.round(totalConInteres / cuotas);
+                const gastosAdmin = Math.round(calculadoraGastosAdmin(totalConInteres));
 
-                const gastosAdmin = calculadoraGastosAdmin(totalConInteres);
-
-                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 0 })}`;
-                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 0 })}`;
+                // Formateamos sin decimales (minimumFractionDigits: 0)
+                priceText.innerText = `$ ${cuota.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+                adminText.innerText = `$ ${gastosAdmin.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 
                 resultContainer.classList.remove('hidden');
                 btn.innerText = "Calcular Cuota";
