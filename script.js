@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectAnio) {
         let op2222 = document.createElement('option');
 
-        for (let i = 2026; i >= 2005; i--) {
+        for (let i = 2026; i >= 2006; i--) {
             let op = document.createElement('option');
             op.value = i; op.innerText = i;
             selectAnio.appendChild(op);
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
