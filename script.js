@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculadoraGastosAdmin = (monto) => {
         let viaticos = 40000;
         let escribano = 60000;
-        let gastosvarios = 100000;
-        const gastosAdmin = monto * 0.02 + viaticos + escribano + gastosvarios;
+        let gastosdegestoria = 100000;
+        const gastosAdmin = monto * 0.02 + viaticos + escribano + gastosdegestoria;
         return gastosAdmin;
     }
 
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 
 
