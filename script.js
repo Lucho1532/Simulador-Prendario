@@ -20,13 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modelo
     if (selectAnio) {
         let op2222 = document.createElement('option');
-        op2222.value = "2222"; op2222.innerText = "2222";
-        selectAnio.appendChild(op2222);
+
         for (let i = 2026; i >= 2005; i--) {
             let op = document.createElement('option');
             op.value = i; op.innerText = i;
             selectAnio.appendChild(op);
         }
+            op2222.value = "2222"; op2222.innerText = "2222";
+            selectAnio.appendChild(op2222);
     }
 
 
@@ -79,4 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
