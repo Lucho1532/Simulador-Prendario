@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #0b2364;
-    --secundary-color: #334880;
+    --primary-color: #1D2635;
+    --secundary-color: #189283;
     --tertiary-color: #44548c;
 }
 
@@ -31,38 +31,16 @@ body {
     text-align: center;
 }
 
-/* Logo Animado */
 .logo-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-.logo-main {
-    width: 70px;
-    height: 70px;
-    border: 5px solid #e63946;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-inner {
-    width: 40px;
-    height: 40px;
-    border: 8px solid #adb5bd;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-core {
-    width: 14px;
-    height: 14px;
-    background: #e63946;
-    border-radius: 50%;
+.logo-img {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
 }
 
 h1 {
@@ -168,19 +146,6 @@ h3 {
         flex-direction: column;
         justify-content: center;
     }
-}
-
-
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-}
-
-.logo-img {
-    max-width: 100px;
-    height: auto;
-    object-fit: contain;
 }
 
 .contact-section {
